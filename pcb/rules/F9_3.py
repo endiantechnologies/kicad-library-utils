@@ -75,10 +75,12 @@ class Rule(KLCRule):
 
         if model.startswith(SYSMOD_PREFIX):
             model = model.replace(SYSMOD_PREFIX,"")
+        elif model.startswith("${KIPRJMOD}/endian-kicad-library/packages3d/"):
+            model = model.replace("${KIPRJMOD}/endian-kicad-library/packages3d/","")
         else:
             self.model3D_missingSYSMOD = True
             self.needsFixMore = True
-            self.warning("Model path should start with '" + SYSMOD_PREFIX + "'")
+            self.warning("Model path should start with '${KIPRJMOD}/endian-kicad-library/packages3d/'")
 
         model_split = model.split("/")
         if len(model_split) <= 1:

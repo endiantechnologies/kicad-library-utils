@@ -102,6 +102,9 @@ class Rule(KLCRule):
 
         # Check for required fields
         n = len(self.component.fields)
+
+        if n > 4: n = 4
+
         if n < 4:
             self.error("Component does not have minimum required fields!")
 
